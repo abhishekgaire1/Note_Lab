@@ -1,0 +1,482 @@
+/* Global CSS Variables: https://www.w3schools.com/css/css3_variables.asp */
+/* Reference these in your CSS to get the same color as the mockups */
+:root {
+  --sidebar-width: 240px;
+  --text-color: rgb(50, 50, 50);
+  --background-color: #ffffff;
+  --light-background-color: #f4f4f4;
+  --nav-bar-color: #ffffff;
+  --selected-color: rgb(229, 241, 253);
+  --action-text-color: #ffffff;
+  --action-color: rgb(58, 99, 197);
+  --border-color: darkgray;
+}
+
+
+body {
+  background-color: var(--background-color);
+  padding: 0;
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+
+button, input[type=submit]  {
+  cursor: pointer;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+
+button{
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+
+
+textarea {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+input{
+  border: none;
+
+}
+.material-icons{
+  margin: 5px;
+  padding:5px;
+}
+
+
+.notes{
+  display: flex;
+}
+
+.notes_list{
+  width: 240px;
+  border-right: 1px solid darkgray;
+
+  height: 100vh;
+
+}
+
+.profile_menu{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid darkgray;
+}
+.profile_img{
+
+  border-radius: 200%;
+  margin-left:5px;
+  width:40px;
+  height:40px;
+}
+
+
+.modal.active{
+  transform: translate(-50%,-50%) scale(1);
+}
+.modal_title, #close_modal{
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.modal_top,.modal_menu,.modal_footer{
+  display: flex;
+  margin-top:20px ;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_top,.modal_menu{
+  padding: 0 15px;
+}
+.modal_menu{
+  margin-top:15px;
+}
+.modal_top{
+  margin-top: 20px ;
+}
+.modal_body{
+
+}
+
+#modal_name, #modal_email, #color_scheme{
+  border: 1px solid darkgray;
+  width: 100%;
+  height: 25px;
+}
+
+
+select{
+  border: none;
+  width: 100%;
+
+}
+.modal_body{
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+#modal_save{
+  background: rgb(58, 99, 197);
+  color: white;
+
+  padding: 10px 15px;
+  border-radius: 10px;
+
+}
+
+
+#overlay{
+  position: fixed;
+  opacity: 1;
+  pointer-events: all;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:rgba(0,0,0,0.5);
+
+}
+.overlay_active{
+
+}
+
+.title_name{
+  display: block;
+  margin:auto;
+  font-size: 24px;
+
+}
+
+.search_bar{
+  border-bottom:1px solid darkgray;
+  height: 40px;
+  display: flex;
+
+}
+.active_note{
+  background-color: rgba(58, 99, 197,0.6);
+}
+.notes_list_items{
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+.item{
+  cursor: pointer;
+  list-style: none;
+  padding: 5px;
+  border-bottom: 1px solid darkgray;
+  border-top:  1px solid darkgray;
+}
+.notes_list_body{
+  font-size: 18px;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap
+}
+.notes_list_time{
+  font-size: 10px;
+}
+.preview_menu{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  height: 44px;
+
+}
+.notes_preview{
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*flex: 1;*/
+
+
+}
+
+textarea{
+  /*border-bottom: 1px solid grey;*/
+  height:89vh;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.none{
+  display: none;
+}
+.center_modal{
+
+}
+
+.textarea-tags{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+}
+
+
+.tag{
+  display: flex;
+
+  flex-grow: 1;
+  background-color: lightgrey;
+  flex-grow: revert;
+
+
+}
+/* These rules only apply if the window's max-width is 500px or less */
+@media all and (max-width: 500px) {
+  body{
+    background-color: white;
+  }
+  .logo {
+    display: none;
+  }
+
+  .notes_list{
+    width:100%
+
+
+  }
+
+
+  .modal{
+    margin: 0 40px;
+
+  }
+  #signup-page{
+
+    padding:20px;
+
+  }
+}
+
+@media all and (min-width: 500px){
+  #arrow_back{
+    display: none;
+  }
+
+  .modal{
+    padding: 0% 1%;
+    padding-bottom: 1%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.2);
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    z-index: 10;
+    background-color: white;
+    width: 400px;
+
+  }
+  #signup-page{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    height: 38%;
+    width:34%;
+    z-index: 9;
+
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 1px solid darkgray;
+    padding:20px;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+
+
+
+
+}
+
+
+
+
+
+/*for tags*/
+
+
+div.ReactTags__tags {
+  position: relative;
+}
+
+/* Styles for the input */
+div.ReactTags__tagInput {
+  width: 200px;
+  border-radius: 2px;
+  display: inline-block;
+}
+div.ReactTags__tagInput input.ReactTags__tagInputField,
+div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+  height: 31px;
+  margin: 0;
+  font-size: 12px;
+  width: 100%;
+  border: 1px solid #eee;
+  padding: 0 4px;
+}
+
+/* Styles for selected tags */
+div.ReactTags__selected span.ReactTags__tag {
+  border: 1px solid #ddd;
+  background: #eee;
+  font-size: 12px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  cursor: move;
+  border-radius: 2px;
+}
+div.ReactTags__selected a.ReactTags__remove {
+  color: #aaa;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* Styles for suggestions */
+div.ReactTags__suggestions {
+  position: absolute;
+}
+div.ReactTags__suggestions ul {
+  list-style-type: none;
+  box-shadow: .05em .01em .5em rgba(0,0,0,.2);
+  background: white;
+  width: 200px;
+}
+div.ReactTags__suggestions li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0;
+}
+div.ReactTags__suggestions li mark {
+  text-decoration: underline;
+  background: none;
+  font-weight: 600;
+}
+div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
+  background: #b7cfe0;
+  cursor: pointer;
+}
+
+/*for the login page*/
+
+#start-page,body{
+  background-color:#f4f4f4;
+
+}
+
+#login-email,#login-password, #login-button,#signup-name,#signup-email,#signup-password{
+  border: 1px solid darkgray;
+  width:100%;
+  padding: 10px 0px;
+
+
+}
+#signup-button{
+  background-color:rgb(0, 171, 102) ;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+}
+#login-button{
+  background-color:rgb(58, 99, 197) ;
+  border-radius: 10px;
+
+  color: white;
+}
+#login-header h1{
+  font-size: 2.75rem;
+}
+#login-header h3{
+  font-size: 1.3rem;
+  margin-bottom: 20px ;
+}
+#login-page{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 38%;
+  width:34%;
+
+
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid darkgray;
+  padding:20px;
+  border-radius: 20px;
+  background-color: white;
+
+}
+
+
+
+#login-header,#login-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3%;
+}
+#login-new-account{
+  background-color:rgb(0, 171, 102) ;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+#signup-header{
+  display: flex;
+  justify-content: space-between;
+}
+#signup-label{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#error{
+  color: red;
+
+}
+
+#file-upload{
+  display: none;
+
+}
+.custom-file-upload{
+  cursor: pointer;
+
+}
+.similar_note{
+  background-color: rgba(179, 231, 236, 0.6);
+}
+#similar_note{
+  font-size: 8px;
+  font-weight: bold;
+}
+#timeSimilar{
+
+  display: flex;
+  justify-content: space-between;
+
+}
